@@ -20,4 +20,4 @@ aldeanos.reverse();
 aldeanos.splice(1, "Canela");
 //4.6 - Imprime por consola el último elemento de este array sin atacar a la posición explicitamente
 // Pista: puedes usar el método length con algo más para ello.
-
+console.log(aldeanos[aldeanos.length - 1]);
