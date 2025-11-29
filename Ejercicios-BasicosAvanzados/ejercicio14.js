@@ -11,21 +11,31 @@ Puedes usar este array para probar tu función:
 */
 
 const words = [
-  'code',
-  'repeat',
-  'eat',
-  'sleep',
-  'code',
-  'enjoy',
-  'sleep',
-  'code',
-  'enjoy',
-  'sleep',
-  'code'
+  "code",
+  "repeat",
+  "eat",
+  "sleep",
+  "code",
+  "enjoy",
+  "sleep",
+  "code",
+  "enjoy",
+  "sleep",
+  "code",
 ];
 
 function repeatCounter(list) {
-    
+  const lista = {};
+
+  for (const element of list) {
+    if (lista[element]) {
+      lista[element]++;
+    } else {
+      lista[element] = 1;
+    }
+  }
+
+  return lista;
 }
 
-repeatCounter(words)
+console.log(repeatCounter(words));
