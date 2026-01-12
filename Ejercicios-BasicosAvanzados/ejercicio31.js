@@ -24,7 +24,9 @@ const artists = [
 ];
 
 for (let i = 0; i < artists.length; i++) {
-    for (let i = 0; i < artists[i].influences.length; i++) {
-        console.log(artists[i].influences[i])
-    }
+  console.log("Artista: " + artists[i].name);
+  for (let i = 0; i < artists[i].influences.length; i++) {
+    console.log("Influencias directas: " + artists[i].influences[i]);
+  }
+  console.log("-------------------");
 }
