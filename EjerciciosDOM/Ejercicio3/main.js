@@ -20,33 +20,61 @@ remove.remove();
 
 /*
 1.3 Utiliza el array para crear dinamicamente una lista ul > li de elementos en el div de html con el atributo data-function="printHere".*/
-const cars = ['Mazda 6', 'Ford fiesta', 'Audi A4', 'Toyota corola'];
+const cars = ["Mazda 6", "Ford fiesta", "Audi A4", "Toyota corola"];
 
-const printHere = document.querySelector('[data-function="printHere"]')
-const ul2 = document.createElement("ul")
-cars.forEach(car => {
-    const li = document.createElement("li")
-    li.textContent = car
-    ul2.appendChild(li)
+const printHere = document.querySelector('[data-function="printHere"]');
+const ul2 = document.createElement("ul");
+cars.forEach((car) => {
+  const li = document.createElement("li");
+  li.textContent = car;
+  ul2.appendChild(li);
 });
-printHere.appendChild(ul2)
+printHere.appendChild(ul2);
 
 /*
 1.4 Crea dinamicamente en el html una serie de divs que contenga un elemento h4 para el titulo y otro elemento img para la imagen.*/
 const countries2 = [
-	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=1'},
-	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=2'},
-	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=3'},
-	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=4'},
-	{title: 'Random title', imgUrl: 'https://picsum.photos/300/200?random=5'}
+  { title: "Random title", imgUrl: "https://picsum.photos/300/200?random=1" },
+  { title: "Random title", imgUrl: "https://picsum.photos/300/200?random=2" },
+  { title: "Random title", imgUrl: "https://picsum.photos/300/200?random=3" },
+  { title: "Random title", imgUrl: "https://picsum.photos/300/200?random=4" },
+  { title: "Random title", imgUrl: "https://picsum.photos/300/200?random=5" },
 ];
 
-countries2.forEach(country => {
-    const div = document.createElement("div")
-    div.innerHTML = `
-    <div>
-        <h4>${country.title}</h4>
-        <img src="${country.imgUrl}" alt="${country.title}"/>
-    </div>
-    `
+const generalDiv = document.createElement("div");
+generalDiv.className = "container";
+document.body.appendChild(generalDiv);
+
+countries2.forEach((country) => {
+  const div = document.createElement("div");
+  div.innerHTML = `
+    <h4>${country.title}</h4>
+    <img src="${country.imgUrl}" alt="${country.title}"/>
+    `;
+  generalDiv.appendChild(div);
 });
+
+/*
+1.5 Basandote en el ejercicio anterior. Crea un botón que elimine el último elemento de la serie de divs.
+*/
+const btn = document.createElement("button");
+btn.textContent = "Eliminar último elemento";
+document.body.appendChild(btn);
+
+btn.addEventListener("click", () => {
+  generalDiv.lastElementChild.remove();
+});
+
+/*
+1.6 Basandote en el ejercicio anterior. Crea un botón para cada uno de los divs que elimine ese mismo elemento del html.
+*/
+const divChildren = generalDiv.children;
+for (const element of divChildren) {
+  const btn = document.createElement("button");
+  btn.textContent = "Eliminar elemento";
+  element.appendChild(btn);
+
+  btn.addEventListener("click", () => {
+    element.remove();
+  });
+}
