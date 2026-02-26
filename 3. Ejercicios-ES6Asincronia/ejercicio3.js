@@ -15,14 +15,7 @@ console.log("-----------");
 /*
 3.2 Dado el siguiente array, devuelve una lista que contenga los valores de la propiedad.name y cambia el nombre a'Anacleto' en caso de que empiece por'A'.
 */
-const users2 = [
-  { id: 1, name: "Abel" },
-  { id: 2, name: "Julia" },
-  { id: 3, name: "Pedro" },
-  { id: 4, name: "Amanda" },
-];
-
-const newUsers2 = users2.map((users) => {
+const newUsers2 = users.map((users) => {
   if (users.name.startsWith("A")) {
     return "Anacleto";
   }
